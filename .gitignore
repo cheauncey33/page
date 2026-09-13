@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.vercel/
+
+# local environment files
+.env
+.env.*
+!.env.example
