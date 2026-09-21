@@ -2,6 +2,12 @@ node_modules/
 dist/
 .vercel/
 
+# local visual-check output (screenshots, headless chrome profile)
+.preview/
+
+# local agent workspace (memory, session data) - not part of the site
+.workbuddy/
+
 # local environment files
 .env
 .env.*
