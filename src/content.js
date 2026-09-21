@@ -117,6 +117,8 @@ const zh = {
     more: '展开细节',
     less: '收起细节',
     repo: '查看 GitHub 仓库',
+    demo: '查看演示',
+    live: '在线体验',
     items: [
       {
         id: 'gofun',
@@ -134,6 +136,7 @@ const zh = {
           { value: '2.1k QPS', note: '混合流量吞吐（原 1.3k）' },
         ],
         href: 'https://github.com/cheauncey33/gofun',
+        demoHref: 'https://github.com/cheauncey33/gofun/blob/master/docs/demo/gofun-overview.gif',
         details: [
           {
             title: '购票链路与库存控制',
@@ -164,6 +167,7 @@ const zh = {
           { value: '100%', note: '报告审查完成率（50 份真实报告）' },
         ],
         href: null,
+        demoHref: 'https://rag-audit-platform.app.workbuddy.host/',
         details: [
           {
             title: '知识库与检索链路',
@@ -296,6 +300,8 @@ const en = {
     more: 'Show details',
     less: 'Hide details',
     repo: 'View repository',
+    demo: 'View demo',
+    live: 'Try it live',
     items: [
       {
         id: 'gofun',
@@ -313,6 +319,7 @@ const en = {
           { value: '2.1k QPS', note: 'mixed-load throughput (was 1.3k)' },
         ],
         href: 'https://github.com/cheauncey33/gofun',
+        demoHref: 'https://github.com/cheauncey33/gofun/blob/master/docs/demo/gofun-overview.gif',
         details: [
           {
             title: 'Purchase path & stock control',
@@ -344,6 +351,7 @@ const en = {
           { value: '100%', note: 'report completion rate (50 real reports)' },
         ],
         href: null,
+        demoHref: 'https://rag-audit-platform.app.workbuddy.host/',
         details: [
           {
             title: 'Knowledge base & retrieval',

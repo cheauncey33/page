@@ -99,6 +99,11 @@ function ProjectCard({ project, t }) {
                 GitHub <External className="icon small" />
               </a>
             )}
+            {project.demoHref && (
+              <a className="text-button project-demo-link" href={project.demoHref} target="_blank" rel="noreferrer">
+                {project.type === 'internship' ? t.work.live : t.work.demo} <External className="icon small" />
+              </a>
+            )}
           </footer>
       </article>
     </Reveal>
