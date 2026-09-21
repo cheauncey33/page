@@ -4,7 +4,7 @@ import { useI18n } from '../i18n.jsx'
 import { copyText } from '../lib/copy.js'
 import { Check, GithubMark, Mail, Phone } from './icons.jsx'
 
-const navIds = ['intro', 'timeline', 'work', 'skills']
+const navIds = ['intro', 'internship', 'work']
 const TOAST_DURATION = 1900
 
 export default function Header() {
@@ -50,9 +50,8 @@ export default function Header() {
 
   const links = [
     ['intro', t.nav.intro],
-    ['timeline', t.nav.timeline],
+    ['internship', t.nav.internship],
     ['work', t.nav.work],
-    ['skills', t.nav.skills],
   ]
 
   const handleNavClick = () => setMenuOpen(false)

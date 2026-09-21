@@ -4,51 +4,39 @@ import Reveal from './Reveal.jsx'
 import { useI18n } from '../i18n.jsx'
 import { Arrow, External } from './icons.jsx'
 
+const METRIC_TOKEN = /(\d+(?:\.\d+)?\+?%?)/
+
+function emphasizeMetrics(text) {
+  return text.split(METRIC_TOKEN).map((part, index) => (
+    index % 2 === 1 ? <strong className="detail-metric" key={`${part}-${index}`}>{part}</strong> : part
+  ))
+}
+
 export default function Work() {
   const { t } = useI18n()
-  const [activeIndex, setActiveIndex] = useState(0)
-  const [detailOpen, setDetailOpen] = useState(false)
-
-  const items = t.work.items
-  const index = Math.min(activeIndex, items.length - 1)
-  const project = items[index]
-
-  const selectProject = (next) => {
-    setActiveIndex(next)
-    setDetailOpen(false)
-  }
 
   return (
-    <Section
-      id="work"
-      label={t.work.label}
-      title={t.work.title}
-      intro={t.work.intro}
-      actions={
-        <div className="filter-row" role="tablist" aria-label={t.work.selectLabel}>
-          {items.map((item, i) => (
-            <button
-              key={item.id}
-              type="button"
-              role="tab"
-              aria-selected={i === index}
-              className={`filter-chip ${i === index ? 'is-active' : ''}`}
-              onClick={() => selectProject(i)}
-            >
-              <span className="chip-index" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
-              {item.title}
-            </button>
-          ))}
-        </div>
-      }
-    >
-      <Reveal>
-        <article className="project-card" key={project.id}>
-          <header className="project-head">
-            <span className="project-type">{project.type}</span>
-            <h3>{project.title}</h3>
-            <p>{project.summary}</p>
-          </header>
+    <>
+      <Section id="internship" label={t.work.internshipTitle} title={t.work.internshipTitle}>
+        <ProjectCard project={t.work.items.find((item) => item.type === 'internship')} t={t} />
+      </Section>
+      <Section id="work" label={t.work.projectTitle} title={t.work.projectTitle}>
+        <ProjectCard project={t.work.items.find((item) => item.type === 'project')} t={t} />
+      </Section>
+    </>
+  )
+}
+
+function ProjectCard({ project, t }) {
+  const [detailOpen, setDetailOpen] = useState(false)
+
+  return (
+    <Reveal>
+      <article className="project-card">
+        <header className="project-head">
+          <h3>{project.title}</h3>
+          <p>{project.summary}</p>
+        </header>
 
           <div className="project-cols">
             <div className="project-main">
@@ -91,7 +79,7 @@ export default function Work() {
             {project.details.map((detail) => (
               <div className="detail-line" key={detail.title}>
                 <strong>{detail.title}</strong>
-                <p>{detail.body}</p>
+                <p>{emphasizeMetrics(detail.body)}</p>
               </div>
             ))}
           </div>
@@ -112,8 +100,7 @@ export default function Work() {
               </a>
             )}
           </footer>
-        </article>
-      </Reveal>
-    </Section>
+      </article>
+    </Reveal>
   )
 }

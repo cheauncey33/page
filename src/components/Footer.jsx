@@ -27,7 +27,6 @@ export default function Footer() {
         </div>
 
         <div className="footer-right">
-          <span>{t.footer.rights}</span>
           <span>{profile.updated}</span>
           <a className="back-to-top" href="#top">
             {t.footer.backToTop} <Arrow direction="up" className="icon small" />

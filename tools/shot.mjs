@@ -110,7 +110,7 @@ const { result } = await client.send('Runtime.evaluate', {
       scrollHeight: document.documentElement.scrollHeight,
       heroInner: rect('.hero-inner'),
       heroFirstBlock: rect('.hero-inner > .hero-block:first-child'),
-      stats: rect('.hero-stats'),
+      stack: rect('.stack-rows'),
       aboutParagraph: rect('.about-copy p'),
       section: rect('.section'),
       headerInner: rect('.header-inner'),
